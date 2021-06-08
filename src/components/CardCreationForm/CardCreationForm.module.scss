@@ -1,0 +1,30 @@
+.main-block {
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 3px;
+  width: 100%;
+  max-width: 32%;
+  font-family: 'Gentium Basic', serif;
+}
+
+.info {
+  font-size: large;
+}
+
+.input-block {
+  display: flex;
+}
+
+.header-input {
+  flex-grow: 1;
+}
+
+.text-input {
+  flex-grow: 1;
+  height: 100px;
+}
+
+.submit {
+  margin: 5px 0px;
+}

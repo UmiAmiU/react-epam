@@ -3,5 +3,33 @@
   border-radius: 5px;
   padding: 5px;
   margin: 3px;
+  width: 100%;
   max-width: 32%;
+}
+
+.close-btn {
+  font-size: 40px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  margin: 0px 15px;
+}
+
+.close-btn:hover {
+  color: #808080;
+}
+
+.header-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-text {
+  font-family: 'Gentium Basic', serif;
+  margin: 0;
+}
+
+.main-text {
+  font-family: 'Roboto', sans-serif;
 }

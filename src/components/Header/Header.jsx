@@ -5,7 +5,9 @@ function Header(props) {
   const { user, avatar } = props.userData;
   return (
     <header className={styles.header}>
-      {user.firstName} {user.lastName}
+      <div className={styles['header-text']}>
+        Welcom to cite, {user.firstName} {user.lastName}
+      </div>
     </header>
   );
 }

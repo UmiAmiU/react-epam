@@ -8,9 +8,9 @@ function App(props) {
   const { avatar } = props.userData;
   return (
     <React.Fragment>
-      <Header userData={props.userData}></Header>
-      <Main avatar={avatar}></Main>
-      <Footer></Footer>
+      <Header userData={props.userData} />
+      <Main avatar={avatar} />
+      <Footer />
     </React.Fragment>
   );
 }
