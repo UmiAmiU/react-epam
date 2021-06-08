@@ -1,32 +1,49 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { apiCall } from '../../api/mockedApi';
 import Card from '../Card';
+import CardCreationForm from '../CardCreationForm';
 import styles from './CardsContainer.module.scss';
 
-class CardsContainer extends Component {
-  state = {
-    cards: [],
+function CardsContainer(props) {
+  const [cards, setCards] = useState([]);
+  const [formData, setFormData] = useState({});
+
+  useEffect(() => {
+    apiCall().then((res) => setCards(res));
+  }, []);
+
+  const handleChange = (event) => {
+    if (event.target.value === 'Submit') {
+      setCards([...cards, { ...formData, id: randomInt(1, 1000000) }]);
+      setFormData({});
+      return;
+    }
+    setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  componentDidMount() {
-    apiCall().then((res) => this.setState({ cards: res }));
-  }
+  const removeHandler = (id) => {
+    setCards(cards.filter((card) => card.id !== id));
+  };
 
-  render() {
-    const { cards } = this.state;
+  return (
+    <div className={styles['main-block']}>
+      {cards.map((card) => (
+        <Card
+          key={card.id}
+          id={card.id}
+          header={card.header}
+          text={card.text}
+          remove={removeHandler}
+        />
+      ))}
+      <CardCreationForm handler={handleChange} />
+    </div>
+  );
+}
 
-    return (
-      <div className={styles['main-block']}>
-        {cards.length === 0 ? (
-          <div>No cards yet</div>
-        ) : (
-          cards.map((card) => (
-            <Card key={card.id} header={card.header} text={card.text} />
-          ))
-        )}
-      </div>
-    );
-  }
+function randomInt(min, max) {
+  let rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
 }
 
 export default CardsContainer;

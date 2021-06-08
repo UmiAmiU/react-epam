@@ -1,4 +1,14 @@
 .header {
-  height: 100px;
-  background-color: #00ffff;
+  display: flex;
+  height: 50px;
+  background-color: #919191;
+  justify-content: flex-end;
+  padding: 5px;
+  align-items: center;
+}
+
+.header-text {
+  font-family: 'Gentium Basic', serif;
+  font-size: large;
+  margin-right: 10px;
 }
