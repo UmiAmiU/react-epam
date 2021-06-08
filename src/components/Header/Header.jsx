@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./Header.module.scss";
+import React from 'react';
+import styles from './Header.module.scss';
 
 function Header(props) {
   const { user, avatar } = props.userData;
